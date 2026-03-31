@@ -60,10 +60,10 @@ export default function Home() {
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-6 pt-16 sm:pt-20">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] items-end gap-0">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_196px] lg:grid-cols-[1fr_240px] items-end">
 
           {/* Text */}
-          <div className="pb-16 sm:pb-24 min-w-0">
+          <div className="pb-16 sm:pb-0 min-w-0 pr-0 sm:pr-8 sm:pb-10">
             <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
               Podcast
             </p>
@@ -96,13 +96,13 @@ export default function Home() {
           </div>
 
           {/* Host photo — hidden on mobile, shown on sm+ */}
-          <div className="hidden sm:block pl-6 pb-0 self-end">
-            <div className="relative w-52 lg:w-64 h-64 lg:h-80 rounded-2xl overflow-hidden">
+          <div className="hidden sm:block self-end">
+            <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ height: "280px" }}>
               <Image
                 src="/hosts.jpg"
                 alt="André Mundal og Liv Oftedal Rossow"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top grayscale contrast-125 brightness-75"
               />
             </div>
           </div>
