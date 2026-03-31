@@ -95,22 +95,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Host photos — hidden on mobile, shown on sm+ */}
-          <div className="hidden sm:flex items-end pb-0 pl-4">
-            <Image
-              src="/andre.png"
-              alt="André Mundal"
-              width={180}
-              height={200}
-              className="h-44 lg:h-56 w-auto drop-shadow-2xl translate-x-4 relative z-10"
-            />
-            <Image
-              src="/liv.png"
-              alt="Liv Oftedal Rossow"
-              width={180}
-              height={200}
-              className="h-44 lg:h-56 w-auto drop-shadow-2xl"
-            />
+          {/* Host photo — hidden on mobile, shown on sm+ */}
+          <div className="hidden sm:block pl-6 pb-0 self-end">
+            <div className="relative w-52 lg:w-64 h-64 lg:h-80 rounded-2xl overflow-hidden">
+              <Image
+                src="/hosts.jpg"
+                alt="André Mundal og Liv Oftedal Rossow"
+                fill
+                className="object-cover object-top"
+              />
+            </div>
           </div>
 
         </div>
