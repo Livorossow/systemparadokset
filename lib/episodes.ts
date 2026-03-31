@@ -19,6 +19,8 @@ export const episodes: Episode[] = [
     date: "2025-12-18",
     duration: "1t 6m",
     tags: ["Offentlig sektor", "Ledelse", "Endring"],
+    spotifyUrl: "https://open.spotify.com/episode/5OPIlQpbjk4h9Cndq38MYD",
+    appleUrl: "https://podcasts.apple.com/us/podcast/fra-rampete-ansatte-til-er-du-våken/id1863701419?i=1000742470165",
   },
   {
     number: 2,
@@ -28,6 +30,8 @@ export const episodes: Episode[] = [
     date: "2026-01-05",
     duration: "1t 5m",
     tags: ["Topplederskap", "Personvern", "Kultur"],
+    spotifyUrl: "https://open.spotify.com/episode/5Du7Iq0TltSBH7xX0ZXgvj",
+    appleUrl: "https://podcasts.apple.com/us/podcast/konserverende-krefter-utrente-endringsmuskler-og-personvernbremsen/id1863701419?i=1000743783563",
   },
   {
     number: 3,
@@ -37,6 +41,8 @@ export const episodes: Episode[] = [
     date: "2026-01-20",
     duration: "52 min",
     tags: ["Forsvar", "Byråkrati", "Endringsledelse"],
+    spotifyUrl: "https://open.spotify.com/episode/0TEct4Tf2p5aUjOPsdmgis",
+    appleUrl: "https://podcasts.apple.com/us/podcast/ungt-hastverk-og-seniorbremsing-i-regeljungelen/id1863701419?i=1000745824940",
   },
   {
     number: 4,
@@ -46,6 +52,9 @@ export const episodes: Episode[] = [
     date: "2026-02-11",
     duration: "58 min",
     tags: ["Politi", "Lønn", "Offentlig sektor"],
+    imageUrl: "/episodes/ep4.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/02UP54bsH8t1PIuzgfI3kr",
+    appleUrl: "https://podcasts.apple.com/us/podcast/lav-lønn-i-en-hardere-verden/id1863701419?i=1000749204865",
   },
   {
     number: 5,
@@ -56,6 +65,8 @@ export const episodes: Episode[] = [
     duration: "46 min",
     tags: ["Politikk", "Styring", "Insentiver"],
     imageUrl: "/episodes/ep5.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/05sWuAX2UqRLqSuSUALaWY",
+    appleUrl: "https://podcasts.apple.com/us/podcast/kortsiktig-styring-og-en-politiker-i-bagasjerommet/id1863701419?i=1000751884707",
   },
   {
     number: 6,
@@ -66,5 +77,7 @@ export const episodes: Episode[] = [
     duration: "50 min",
     tags: ["KI", "Digitalisering", "Offentlig sektor"],
     imageUrl: "/episodes/ep6.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/0z4rZO0fRDsjognVsp4a2m",
+    appleUrl: "https://podcasts.apple.com/us/podcast/hettegenser-møter-dress-når-fart-slår-kontroll/id1863701419?i=1000758377809",
   },
 ];
