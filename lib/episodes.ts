@@ -55,6 +55,7 @@ export const episodes: Episode[] = [
     date: "2026-02-27",
     duration: "46 min",
     tags: ["Politikk", "Styring", "Insentiver"],
+    imageUrl: "/episodes/ep5.jpg",
   },
   {
     number: 6,
