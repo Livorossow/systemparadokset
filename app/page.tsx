@@ -125,17 +125,8 @@ export default function Home() {
                   <span className="font-black text-4xl sm:text-5xl text-[#DAA960]/20 leading-none tabular-nums w-12 shrink-0 group-hover:text-[#DAA960]/50 transition-colors">
                     {String(ep.number).padStart(2, "0")}
                   </span>
+                  <div className="flex-1 min-w-0 flex gap-6 items-start">
                   <div className="flex-1 min-w-0">
-                  {ep.imageUrl && (
-                      <div className="relative w-full sm:w-72 h-44 sm:h-48 rounded-xl overflow-hidden mb-5">
-                        <Image
-                          src={ep.imageUrl}
-                          alt={ep.title}
-                          fill
-                          className="object-cover object-center grayscale brightness-125 contrast-90"
-                        />
-                      </div>
-                    )}
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
                       <span className="font-mono text-xs text-white/30">
                         {new Date(ep.date).toLocaleDateString("no-NO", {
@@ -181,6 +172,17 @@ export default function Home() {
                         )}
                       </div>
                     )}
+                  </div>
+                  {ep.imageUrl && (
+                    <div className="relative shrink-0 w-32 sm:w-44 h-32 sm:h-44 rounded-xl overflow-hidden hidden sm:block">
+                      <Image
+                        src={ep.imageUrl}
+                        alt={ep.title}
+                        fill
+                        className="object-cover object-center grayscale brightness-125 contrast-90"
+                      />
+                    </div>
+                  )}
                   </div>
                 </div>
               </li>
