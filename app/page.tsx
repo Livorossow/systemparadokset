@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { episodes } from "@/lib/episodes";
 
-const SPOTIFY_URL =
-  "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
+const SPOTIFY_URL = "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
 const APPLE_URL =
   "https://podcasts.apple.com/us/podcast/systemparadokset-hvordan-sette-fart-der-treghet-regjerer/id1863701419";
 
@@ -17,6 +17,39 @@ const hosts = [
     email: "livrossow@gmail.com",
   },
 ];
+
+function GridTexture() {
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
+      }}
+    />
+  );
+}
+
+function DiagonalLine() {
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <line
+        x1="0"
+        y1="100%"
+        x2="100%"
+        y2="20%"
+        stroke="#DAA960"
+        strokeWidth="1"
+        strokeOpacity="0.6"
+      />
+    </svg>
+  );
+}
 
 function SpotifyIcon() {
   return (
@@ -36,7 +69,7 @@ function AppleIcon() {
 
 function LinkedInIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
@@ -44,19 +77,22 @@ function LinkedInIcon() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
+    <div className="min-h-screen bg-[#252830] text-white font-sans">
+
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="border-b border-zinc-800">
-        <div className="max-w-3xl mx-auto px-6 py-24 sm:py-32">
-          <p className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-5">
-            Podcast
-          </p>
-          <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight text-zinc-50 leading-tight mb-4">
-            Systemparadokset
-          </h1>
-          <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-lg">
-            Hvordan sette fart der treghet regjerer
-          </p>
+      <section className="relative overflow-hidden min-h-[60vh] flex items-center border-b border-white/5">
+        <GridTexture />
+        <DiagonalLine />
+
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-24 sm:py-32 w-full">
+          <Image
+            src="/logo.png"
+            alt="Systemparadokset – hvordan sette fart der treghet regjerer"
+            width={480}
+            height={160}
+            priority
+            className="mb-10 -ml-2"
+          />
           <div className="flex flex-wrap gap-3">
             <a
               href={SPOTIFY_URL}
@@ -71,7 +107,7 @@ export default function Home() {
               href={APPLE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-800 text-zinc-100 text-sm font-semibold hover:bg-zinc-700 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold hover:border-[#DAA960] hover:text-[#DAA960] transition-colors"
             >
               <AppleIcon />
               Apple Podcasts
@@ -81,35 +117,36 @@ export default function Home() {
       </section>
 
       {/* ── Episodes ──────────────────────────────────────────── */}
-      <section className="border-b border-zinc-800">
-        <div className="max-w-3xl mx-auto px-6 py-16">
-          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+      <section className="relative border-b border-white/5">
+        <GridTexture />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-8">
             Episoder
           </h2>
           <ol>
-            {episodes.map((ep) => (
+            {[...episodes].reverse().map((ep) => (
               <li
                 key={ep.number}
-                className="border-t border-zinc-800 py-6 flex items-start justify-between gap-6"
+                className="border-t border-white/5 py-6 flex items-start justify-between gap-6 group"
               >
                 <div className="flex-1 min-w-0">
-                  <p className="font-mono text-xs text-zinc-600 mb-1">
-                    #{ep.number}
+                  <p className="font-mono text-xs text-[#DAA960]/60 mb-1.5">
+                    Episode {ep.number}
                   </p>
-                  <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
+                  <h3 className="text-base font-semibold text-white mb-2 group-hover:text-[#DAA960] transition-colors">
                     {ep.title}
                   </h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-sm text-white/50 leading-relaxed">
                     {ep.description}
                   </p>
                   {(ep.spotifyUrl || ep.appleUrl) && (
-                    <div className="flex gap-3 mt-3">
+                    <div className="flex gap-4 mt-3">
                       {ep.spotifyUrl && (
                         <a
                           href={ep.spotifyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                          className="text-xs text-[#DAA960]/60 hover:text-[#DAA960] transition-colors"
                         >
                           Spotify →
                         </a>
@@ -119,7 +156,7 @@ export default function Home() {
                           href={ep.appleUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                          className="text-xs text-[#DAA960]/60 hover:text-[#DAA960] transition-colors"
                         >
                           Apple →
                         </a>
@@ -127,10 +164,11 @@ export default function Home() {
                     </div>
                   )}
                 </div>
-                <div className="shrink-0 text-right font-mono text-xs text-zinc-600 pt-5">
+                <div className="shrink-0 text-right font-mono text-xs text-white/30 pt-6 space-y-0.5">
                   <div>{ep.duration}</div>
-                  <div className="mt-0.5">
+                  <div>
                     {new Date(ep.date).toLocaleDateString("no-NO", {
+                      day: "numeric",
                       month: "short",
                       year: "numeric",
                     })}
@@ -138,18 +176,19 @@ export default function Home() {
                 </div>
               </li>
             ))}
-            <li className="border-t border-zinc-800" />
+            <li className="border-t border-white/5" />
           </ol>
         </div>
       </section>
 
       {/* ── About ─────────────────────────────────────────────── */}
-      <section className="border-b border-zinc-800">
-        <div className="max-w-3xl mx-auto px-6 py-16">
-          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+      <section className="relative border-b border-white/5">
+        <GridTexture />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-8">
             Om podcasten
           </h2>
-          <p className="text-zinc-300 leading-relaxed max-w-xl mb-12">
+          <p className="text-white/70 leading-relaxed max-w-xl mb-12 text-[15px]">
             Systemparadokset er en podcast om store organisasjoner, komplekse
             systemer og det evige spørsmålet: hvorfor er det så vanskelig å
             komme seg fremover? Vi snakker med folk som jobber i og med systemer
@@ -157,21 +196,21 @@ export default function Home() {
             skal til for å skape bevegelse der treghet regjerer.
           </p>
 
-          <h3 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-6">
+          <h3 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-6">
             Verter
           </h3>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4">
             {hosts.map((host) => (
               <div
                 key={host.name}
-                className="rounded-xl border border-zinc-800 p-5 bg-zinc-900/50"
+                className="rounded-lg border border-white/8 bg-white/3 p-5 hover:border-[#DAA960]/40 transition-colors"
               >
-                <p className="font-semibold text-zinc-100 mb-3">{host.name}</p>
+                <p className="font-semibold text-white mb-3">{host.name}</p>
                 <a
                   href={host.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#DAA960]/60 hover:text-[#DAA960] transition-colors"
                 >
                   <LinkedInIcon />
                   LinkedIn
@@ -183,31 +222,35 @@ export default function Home() {
       </section>
 
       {/* ── Contact ───────────────────────────────────────────── */}
-      <footer>
-        <div className="max-w-3xl mx-auto px-6 py-16">
-          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+      <footer className="relative">
+        <GridTexture />
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-8">
             Kontakt
           </h2>
-          <div className="flex flex-wrap gap-8">
+          <div className="flex flex-wrap gap-10">
             {hosts.map((host) => (
               <div key={host.name}>
-                <p className="text-sm font-semibold text-zinc-300 mb-1">
+                <p className="text-sm font-semibold text-white/80 mb-1">
                   {host.name}
                 </p>
                 <a
                   href={`mailto:${host.email}`}
-                  className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors"
+                  className="text-sm text-[#DAA960]/60 hover:text-[#DAA960] transition-colors"
                 >
                   {host.email}
                 </a>
               </div>
             ))}
           </div>
-          <p className="mt-16 text-xs text-zinc-700 font-mono">
-            © {new Date().getFullYear()} Systemparadokset
-          </p>
+          <div className="mt-16 pt-8 border-t border-white/5">
+            <p className="text-xs text-white/20 font-mono">
+              © {new Date().getFullYear()} Systemparadokset
+            </p>
+          </div>
         </div>
       </footer>
+
     </div>
   );
 }
