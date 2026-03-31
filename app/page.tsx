@@ -1,65 +1,213 @@
-import Image from "next/image";
+import { episodes } from "@/lib/episodes";
+
+const SPOTIFY_URL =
+  "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
+const APPLE_URL =
+  "https://podcasts.apple.com/us/podcast/systemparadokset-hvordan-sette-fart-der-treghet-regjerer/id1863701419";
+
+const hosts = [
+  {
+    name: "André Mundal",
+    linkedIn: "https://www.linkedin.com/in/andr%C3%A9-mundal/",
+    email: "amundal@gmail.com",
+  },
+  {
+    name: "Liv Oftedal Rossow",
+    linkedIn: "https://www.linkedin.com/in/livrossow/",
+    email: "livrossow@gmail.com",
+  },
+];
+
+function SpotifyIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+    </svg>
+  );
+}
+
+function AppleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+      <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
+      {/* ── Hero ──────────────────────────────────────────────── */}
+      <section className="border-b border-zinc-800">
+        <div className="max-w-3xl mx-auto px-6 py-24 sm:py-32">
+          <p className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-5">
+            Podcast
+          </p>
+          <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight text-zinc-50 leading-tight mb-4">
+            Systemparadokset
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+          <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-lg">
+            Hvordan sette fart der treghet regjerer
+          </p>
+          <div className="flex flex-wrap gap-3">
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href={SPOTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1DB954] text-black text-sm font-semibold hover:bg-[#1ed760] transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              <SpotifyIcon />
+              Spotify
+            </a>
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href={APPLE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-800 text-zinc-100 text-sm font-semibold hover:bg-zinc-700 transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
+              <AppleIcon />
+              Apple Podcasts
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Episodes ──────────────────────────────────────────── */}
+      <section className="border-b border-zinc-800">
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+            Episoder
+          </h2>
+          <ol>
+            {episodes.map((ep) => (
+              <li
+                key={ep.number}
+                className="border-t border-zinc-800 py-6 flex items-start justify-between gap-6"
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="font-mono text-xs text-zinc-600 mb-1">
+                    #{ep.number}
+                  </p>
+                  <h3 className="text-base font-semibold text-zinc-100 mb-1.5">
+                    {ep.title}
+                  </h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {ep.description}
+                  </p>
+                  {(ep.spotifyUrl || ep.appleUrl) && (
+                    <div className="flex gap-3 mt-3">
+                      {ep.spotifyUrl && (
+                        <a
+                          href={ep.spotifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                        >
+                          Spotify →
+                        </a>
+                      )}
+                      {ep.appleUrl && (
+                        <a
+                          href={ep.appleUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                        >
+                          Apple →
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <div className="shrink-0 text-right font-mono text-xs text-zinc-600 pt-5">
+                  <div>{ep.duration}</div>
+                  <div className="mt-0.5">
+                    {new Date(ep.date).toLocaleDateString("no-NO", {
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </div>
+                </div>
+              </li>
+            ))}
+            <li className="border-t border-zinc-800" />
+          </ol>
+        </div>
+      </section>
+
+      {/* ── About ─────────────────────────────────────────────── */}
+      <section className="border-b border-zinc-800">
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+            Om podcasten
+          </h2>
+          <p className="text-zinc-300 leading-relaxed max-w-xl mb-12">
+            Systemparadokset er en podcast om store organisasjoner, komplekse
+            systemer og det evige spørsmålet: hvorfor er det så vanskelig å
+            komme seg fremover? Vi snakker med folk som jobber i og med systemer
+            som tilsynelatende styrer seg selv — og utforsker hva som faktisk
+            skal til for å skape bevegelse der treghet regjerer.
+          </p>
+
+          <h3 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-6">
+            Verter
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {hosts.map((host) => (
+              <div
+                key={host.name}
+                className="rounded-xl border border-zinc-800 p-5 bg-zinc-900/50"
+              >
+                <p className="font-semibold text-zinc-100 mb-3">{host.name}</p>
+                <a
+                  href={host.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
+                  <LinkedInIcon />
+                  LinkedIn
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contact ───────────────────────────────────────────── */}
+      <footer>
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <h2 className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-8">
+            Kontakt
+          </h2>
+          <div className="flex flex-wrap gap-8">
+            {hosts.map((host) => (
+              <div key={host.name}>
+                <p className="text-sm font-semibold text-zinc-300 mb-1">
+                  {host.name}
+                </p>
+                <a
+                  href={`mailto:${host.email}`}
+                  className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors"
+                >
+                  {host.email}
+                </a>
+              </div>
+            ))}
+          </div>
+          <p className="mt-16 text-xs text-zinc-700 font-mono">
+            © {new Date().getFullYear()} Systemparadokset
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }
