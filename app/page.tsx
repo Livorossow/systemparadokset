@@ -59,86 +59,66 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="flex flex-col items-center text-center px-6 pt-14 pb-4 sm:pt-20">
+      <section className="max-w-4xl mx-auto px-6 pt-14 sm:pt-20">
 
-        {/* Circular composition: rings + photo + tagline */}
-        <div
-          className="relative mb-8"
-          style={{ width: "min(460px, 92vw)", aspectRatio: "1" }}
-        >
-          {/* Photo clipped to circle */}
-          <div className="absolute inset-4 rounded-full overflow-hidden">
-            <Image
-              src="/hosts.jpg"
-              alt="André Mundal og Liv Oftedal Rossow"
-              fill
-              priority
-              className="object-cover object-top grayscale brightness-110"
-            />
-            {/* Gradient so tagline is readable */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            {/* Tagline inside the circle at the bottom */}
-            <div className="absolute bottom-0 left-0 right-0 px-8 pb-10 pt-6">
-              <p className="text-white/90 italic text-sm sm:text-base leading-snug">
-                — hvordan sette fart<br />der treghet regjerer —
+        {/* Wordmark */}
+        <p className="font-mono text-sm sm:text-base tracking-[0.2em] uppercase font-semibold mb-10">
+          System<span className="text-[#DAA960]">PA</span>radokset
+          <span className="font-normal text-[#DAA960]/50 text-xs tracking-widest ml-4">Podcast</span>
+        </p>
+
+        {/* Ring around tagline + photo */}
+        <div className="relative py-10 sm:py-14 sm:px-10">
+
+          {/* Ellipse ring — desktop only */}
+          <span className="hidden sm:block absolute inset-0 rounded-[50%] border border-white/15 pointer-events-none" />
+          {/* Gold dots at top-centre and right-centre */}
+          <span className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#DAA960]" />
+          <span className="hidden sm:block absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#DAA960]" />
+
+          {/* Content: tagline + buttons left, photo right */}
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_240px] items-end gap-6">
+            <div className="pb-14 sm:pb-0">
+              <p className="text-xl sm:text-2xl text-white/60 italic mb-10 leading-snug">
+                — hvordan sette fart der treghet regjerer
               </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={SPOTIFY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
+                >
+                  <SpotifyIcon />
+                  Lytt på Spotify
+                </a>
+                <a
+                  href={APPLE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#9933CC] text-white text-sm font-bold hover:bg-[#aa44dd] transition-colors"
+                >
+                  <AppleIcon />
+                  Apple Podcasts
+                </a>
+              </div>
+            </div>
+
+            {/* Photo — hidden on mobile */}
+            <div className="hidden sm:block self-end">
+              <div className="relative w-full rounded-t-xl overflow-hidden" style={{ height: "260px" }}>
+                <Image
+                  src="/hosts.jpg"
+                  alt="André Mundal og Liv Oftedal Rossow"
+                  fill
+                  priority
+                  className="object-cover object-top grayscale brightness-110"
+                />
+              </div>
             </div>
           </div>
 
-          {/* SVG rings overlay — matches brand logo style */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 460 460"
-            fill="none"
-            aria-hidden="true"
-          >
-            {/* Outer ring */}
-            <circle cx="230" cy="230" r="227" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" />
-            {/* Gold arc — top-right */}
-            <path d="M 230,3 A 227,227 0 0,1 457,230" stroke="#DAA960" strokeWidth="2.5" />
-            {/* Gold arc — bottom-left, dimmer */}
-            <path d="M 230,457 A 227,227 0 0,1 3,230" stroke="#DAA960" strokeWidth="1" opacity="0.25" />
-            {/* Gold dots at arc ends */}
-            <circle cx="230" cy="3" r="5.5" fill="#DAA960" />
-            <circle cx="457" cy="230" r="5.5" fill="#DAA960" />
-            {/* Arrows pointing outward */}
-            <polygon points="230,0 223,13 237,13" fill="#DAA960" />
-            <polygon points="460,230 447,223 447,237" fill="#DAA960" />
-            {/* Inner ring (subtle) */}
-            <circle cx="230" cy="230" r="186" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-          </svg>
         </div>
-
-        {/* Wordmark */}
-        <p className="font-mono text-lg sm:text-xl tracking-[0.2em] uppercase font-semibold mb-2">
-          System<span className="text-[#DAA960]">PA</span>radokset
-        </p>
-        <p className="font-mono text-xs text-[#DAA960]/60 tracking-[0.3em] uppercase mb-8">
-          Podcast
-        </p>
-
-        {/* Platform buttons */}
-        <div className="flex flex-wrap gap-3 justify-center">
-          <a
-            href={SPOTIFY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
-          >
-            <SpotifyIcon />
-            Lytt på Spotify
-          </a>
-          <a
-            href={APPLE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#9933CC] text-white text-sm font-bold hover:bg-[#aa44dd] transition-colors"
-          >
-            <AppleIcon />
-            Apple Podcasts
-          </a>
-        </div>
-
       </section>
 
       {/* ── Episodes ──────────────────────────────────────────── */}
