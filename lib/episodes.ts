@@ -30,6 +30,7 @@ export const episodes: Episode[] = [
     date: "2026-01-05",
     duration: "1t 5m",
     tags: ["Topplederskap", "Personvern", "Kultur"],
+    imageUrl: "/episodes/ep2.jpg",
     spotifyUrl: "https://open.spotify.com/episode/5Du7Iq0TltSBH7xX0ZXgvj",
     appleUrl: "https://podcasts.apple.com/us/podcast/konserverende-krefter-utrente-endringsmuskler-og-personvernbremsen/id1863701419?i=1000743783563",
   },
