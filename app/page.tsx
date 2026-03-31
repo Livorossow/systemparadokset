@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { episodes } from "@/lib/episodes";
 
 const SPOTIFY_URL = "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
@@ -17,39 +16,6 @@ const hosts = [
     email: "livrossow@gmail.com",
   },
 ];
-
-function GridTexture() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
-      }}
-    />
-  );
-}
-
-function DiagonalLine() {
-  return (
-    <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <line
-        x1="0"
-        y1="100%"
-        x2="100%"
-        y2="15%"
-        stroke="#DAA960"
-        strokeWidth="1"
-        strokeOpacity="0.5"
-      />
-    </svg>
-  );
-}
 
 function SpotifyIcon() {
   return (
@@ -77,132 +43,114 @@ function LinkedInIcon() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#252830] text-white font-sans">
+    <div className="min-h-screen bg-[#141518] text-white font-sans">
 
       {/* ── Nav ───────────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-50 border-b border-white/5 bg-[#252830]/90 backdrop-blur-sm">
-        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="#" className="opacity-80 hover:opacity-100 transition-opacity">
-            <Image
-              src="/logo.png"
-              alt="Systemparadokset"
-              width={180}
-              height={60}
-              className="h-7 w-auto"
-            />
-          </a>
-          <a
-            href="#om"
-            className="text-sm text-white/50 hover:text-[#DAA960] transition-colors"
-          >
+      <nav className="sticky top-0 z-50 bg-[#141518]/95 backdrop-blur-sm border-b border-white/5">
+        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+          <span className="text-sm font-bold tracking-widest uppercase">
+            System<span className="text-[#DAA960]">PA</span>radokset
+          </span>
+          <a href="#om" className="text-sm text-white/40 hover:text-white transition-colors">
             Om oss
           </a>
         </div>
       </nav>
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-white/5">
-        <GridTexture />
-        <DiagonalLine />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 py-20 sm:py-28">
-          <Image
-            src="/logo.png"
-            alt="Systemparadokset – hvordan sette fart der treghet regjerer"
-            width={420}
-            height={140}
-            priority
-            className="-ml-2 mb-8"
-          />
-          <p className="text-white/50 text-sm mb-8">
-            Med André Mundal og Liv Oftedal Rossow
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={SPOTIFY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1DB954] text-black text-sm font-semibold hover:bg-[#1ed760] transition-colors"
-            >
-              <SpotifyIcon />
-              Lytt på Spotify
-            </a>
-            <a
-              href={APPLE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-sm font-semibold hover:border-[#DAA960]/60 hover:text-[#DAA960] transition-colors"
-            >
-              <AppleIcon />
-              Apple Podcasts
-            </a>
-          </div>
+      <section className="max-w-4xl mx-auto px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
+        <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
+          Podcast
+        </p>
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
+          System<span className="text-[#DAA960]">pa</span>radokset
+        </h1>
+        <p className="text-xl sm:text-2xl text-white/60 italic mb-12 max-w-lg leading-snug">
+          — hvordan sette fart der treghet regjerer
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href={SPOTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
+          >
+            <SpotifyIcon />
+            Lytt på Spotify
+          </a>
+          <a
+            href={APPLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 text-sm font-semibold hover:border-white/50 hover:bg-white/5 transition-colors"
+          >
+            <AppleIcon />
+            Apple Podcasts
+          </a>
         </div>
       </section>
 
       {/* ── Episodes ──────────────────────────────────────────── */}
-      <section className="relative border-b border-white/5">
-        <GridTexture />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 py-14">
-          <h2 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-10">
+      <section className="bg-[#1c1e24] border-y border-white/5">
+        <div className="max-w-4xl mx-auto px-6 py-16">
+          <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-12">
             Episoder
-          </h2>
+          </p>
           <ol className="space-y-0">
             {[...episodes].reverse().map((ep) => (
-              <li
-                key={ep.number}
-                className="border-t border-white/5 py-8 group"
-              >
-                <p className="font-mono text-xs text-white/30 mb-2">
-                  #{ep.number} &middot;{" "}
-                  {new Date(ep.date).toLocaleDateString("no-NO", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}{" "}
-                  &middot; {ep.duration}
-                </p>
-                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[#DAA960] transition-colors leading-snug">
-                  {ep.title}
-                </h3>
-                {ep.tags && ep.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {ep.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2.5 py-0.5 rounded-full border border-[#DAA960]/25 text-[#DAA960]/70"
-                      >
-                        {tag}
+              <li key={ep.number} className="group border-t border-white/5 py-8 sm:py-10">
+                <div className="flex gap-6 sm:gap-10 items-start">
+                  <span className="font-black text-4xl sm:text-5xl text-[#DAA960]/20 leading-none tabular-nums w-12 shrink-0 group-hover:text-[#DAA960]/50 transition-colors">
+                    {String(ep.number).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
+                      <span className="font-mono text-xs text-white/30">
+                        {new Date(ep.date).toLocaleDateString("no-NO", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
                       </span>
-                    ))}
-                  </div>
-                )}
-                <p className="text-sm text-white/45 leading-relaxed max-w-xl">
-                  {ep.description}
-                </p>
-                {(ep.spotifyUrl || ep.appleUrl) && (
-                  <div className="flex gap-4 mt-4">
-                    {ep.spotifyUrl && (
-                      <a
-                        href={ep.spotifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors"
-                      >
-                        Spotify →
-                      </a>
+                      <span className="text-white/15">·</span>
+                      <span className="font-mono text-xs text-white/30">{ep.duration}</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-[#DAA960] transition-colors">
+                      {ep.title}
+                    </h3>
+                    {ep.tags && ep.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {ep.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="font-mono text-xs text-[#DAA960]/50 border border-[#DAA960]/20 px-2.5 py-0.5 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     )}
-                    {ep.appleUrl && (
-                      <a
-                        href={ep.appleUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors"
-                      >
-                        Apple →
-                      </a>
+                    <p className="text-[15px] text-white/55 leading-relaxed max-w-xl">
+                      {ep.description}
+                    </p>
+                    {(ep.spotifyUrl || ep.appleUrl) && (
+                      <div className="flex gap-4 mt-4">
+                        {ep.spotifyUrl && (
+                          <a href={ep.spotifyUrl} target="_blank" rel="noopener noreferrer"
+                            className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors">
+                            Spotify →
+                          </a>
+                        )}
+                        {ep.appleUrl && (
+                          <a href={ep.appleUrl} target="_blank" rel="noopener noreferrer"
+                            className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors">
+                            Apple →
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
-                )}
+                </div>
               </li>
             ))}
             <li className="border-t border-white/5" />
@@ -211,102 +159,82 @@ export default function Home() {
       </section>
 
       {/* ── About ─────────────────────────────────────────────── */}
-      <section id="om" className="relative border-b border-white/5">
-        <GridTexture />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 py-14">
-          <h2 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-8">
-            Om podcasten
-          </h2>
-          <p className="text-white/60 leading-relaxed max-w-xl mb-12 text-[15px]">
-            Systemparadokset er en podcast om store organisasjoner, komplekse
-            systemer og det evige spørsmålet: hvorfor er det så vanskelig å
-            komme seg fremover? Vi snakker med folk som jobber i og med systemer
-            som tilsynelatende styrer seg selv — og utforsker hva som faktisk
-            skal til for å skape bevegelse der treghet regjerer.
-          </p>
-
-          <h3 className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-6">
-            Verter
-          </h3>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {hosts.map((host) => (
-              <div
-                key={host.name}
-                className="rounded-lg border border-white/8 bg-white/[0.03] p-5 hover:border-[#DAA960]/30 transition-colors"
-              >
-                <p className="font-semibold text-white mb-3">{host.name}</p>
-                <a
-                  href={host.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors"
-                >
-                  <LinkedInIcon />
-                  LinkedIn
-                </a>
-              </div>
-            ))}
+      <section id="om" className="max-w-4xl mx-auto px-6 py-20 sm:py-24">
+        <div className="grid sm:grid-cols-2 gap-12 sm:gap-16">
+          <div>
+            <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-6">
+              Om podcasten
+            </p>
+            <p className="text-white/70 leading-relaxed text-[15px]">
+              Systemparadokset er en podcast om store organisasjoner, komplekse
+              systemer og det evige spørsmålet: hvorfor er det så vanskelig å
+              komme seg fremover? Vi snakker med folk som jobber i og med
+              systemer som tilsynelatende styrer seg selv — og utforsker hva
+              som faktisk skal til for å skape bevegelse der treghet regjerer.
+            </p>
+          </div>
+          <div>
+            <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-6">
+              Verter
+            </p>
+            <div className="space-y-4">
+              {hosts.map((host) => (
+                <div key={host.name} className="border border-white/8 rounded-lg p-5 hover:border-[#DAA960]/30 transition-colors">
+                  <p className="font-semibold text-white mb-2">{host.name}</p>
+                  <a
+                    href={host.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-white/35 hover:text-[#DAA960] transition-colors"
+                  >
+                    <LinkedInIcon />
+                    LinkedIn
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="relative">
-        <GridTexture />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 py-14">
-          <div className="flex flex-col sm:flex-row sm:items-start gap-10 sm:gap-16">
-
+      <footer className="bg-[#1c1e24] border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 mb-12">
             <div>
-              <p className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-4">
+              <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-4">
                 Lytt på
               </p>
-              <div className="flex flex-col gap-2.5">
-                <a
-                  href={SPOTIFY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-[#1DB954] transition-colors"
-                >
-                  <SpotifyIcon />
-                  Spotify
+              <div className="space-y-2.5">
+                <a href={SPOTIFY_URL} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/50 hover:text-[#1DB954] transition-colors">
+                  <SpotifyIcon /> Spotify
                 </a>
-                <a
-                  href={APPLE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
-                >
-                  <AppleIcon />
-                  Apple Podcasts
+                <a href={APPLE_URL} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors">
+                  <AppleIcon /> Apple Podcasts
                 </a>
               </div>
             </div>
-
             <div>
-              <p className="font-mono text-xs text-[#DAA960] uppercase tracking-widest mb-4">
+              <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-4">
                 Kontakt
               </p>
-              <div className="flex flex-col gap-2.5">
+              <div className="space-y-2.5">
                 {hosts.map((host) => (
                   <div key={host.name}>
-                    <a
-                      href={`mailto:${host.email}`}
-                      className="text-sm text-white/50 hover:text-white transition-colors"
-                    >
+                    <a href={`mailto:${host.email}`}
+                      className="text-sm text-white/50 hover:text-white transition-colors">
                       {host.name} — {host.email}
                     </a>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
-
-          <div className="mt-14 pt-8 border-t border-white/5">
-            <p className="text-xs text-white/15 font-mono">
-              © {new Date().getFullYear()} Systemparadokset
-            </p>
-          </div>
+          <p className="font-mono text-xs text-white/15 border-t border-white/5 pt-8">
+            © {new Date().getFullYear()} Systemparadokset
+          </p>
         </div>
       </footer>
 
