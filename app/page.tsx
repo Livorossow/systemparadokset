@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { episodes } from "@/lib/episodes";
 
 const SPOTIFY_URL = "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
@@ -58,35 +59,62 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-        <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
-          Podcast
-        </p>
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
-          System<span className="text-[#DAA960]">pa</span>radokset
-        </h1>
-        <p className="text-xl sm:text-2xl text-white/60 italic mb-12 max-w-lg leading-snug">
-          — hvordan sette fart der treghet regjerer
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href={SPOTIFY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
-          >
-            <SpotifyIcon />
-            Lytt på Spotify
-          </a>
-          <a
-            href={APPLE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 text-sm font-semibold hover:border-white/50 hover:bg-white/5 transition-colors"
-          >
-            <AppleIcon />
-            Apple Podcasts
-          </a>
+      <section className="max-w-4xl mx-auto px-6 pt-16 pb-0 sm:pt-20">
+        <div className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-0">
+
+          {/* Text */}
+          <div className="flex-1 pb-16 sm:pb-24">
+            <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
+              Podcast
+            </p>
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
+              System<span className="text-[#DAA960]">pa</span>radokset
+            </h1>
+            <p className="text-xl sm:text-2xl text-white/60 italic mb-12 max-w-lg leading-snug">
+              — hvordan sette fart der treghet regjerer
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={SPOTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
+              >
+                <SpotifyIcon />
+                Lytt på Spotify
+              </a>
+              <a
+                href={APPLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 text-sm font-semibold hover:border-white/50 hover:bg-white/5 transition-colors"
+              >
+                <AppleIcon />
+                Apple Podcasts
+              </a>
+            </div>
+          </div>
+
+          {/* Host photos */}
+          <div className="flex items-end justify-start sm:justify-end shrink-0">
+            <div className="relative flex items-end">
+              <Image
+                src="/andre.png"
+                alt="André Mundal"
+                width={220}
+                height={220}
+                className="relative z-10 w-36 sm:w-48 lg:w-56 h-auto drop-shadow-2xl translate-x-6"
+              />
+              <Image
+                src="/liv.png"
+                alt="Liv Oftedal Rossow"
+                width={220}
+                height={220}
+                className="w-36 sm:w-48 lg:w-56 h-auto drop-shadow-2xl"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
