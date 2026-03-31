@@ -59,15 +59,15 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 pt-16 pb-0 sm:pt-20">
-        <div className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-0">
+      <section className="max-w-4xl mx-auto px-6 pt-16 sm:pt-20">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] items-end gap-0">
 
           {/* Text */}
-          <div className="flex-1 pb-16 sm:pb-24">
+          <div className="pb-16 sm:pb-24 min-w-0">
             <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
               Podcast
             </p>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
               System<span className="text-[#DAA960]">pa</span>radokset
             </h1>
             <p className="text-xl sm:text-2xl text-white/60 italic mb-12 max-w-lg leading-snug">
@@ -95,24 +95,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Host photos */}
-          <div className="flex items-end justify-start sm:justify-end shrink-0">
-            <div className="relative flex items-end">
-              <Image
-                src="/andre.png"
-                alt="André Mundal"
-                width={220}
-                height={220}
-                className="relative z-10 w-36 sm:w-48 lg:w-56 h-auto drop-shadow-2xl translate-x-6"
-              />
-              <Image
-                src="/liv.png"
-                alt="Liv Oftedal Rossow"
-                width={220}
-                height={220}
-                className="w-36 sm:w-48 lg:w-56 h-auto drop-shadow-2xl"
-              />
-            </div>
+          {/* Host photos — hidden on mobile, shown on sm+ */}
+          <div className="hidden sm:flex items-end pb-0 pl-4">
+            <Image
+              src="/andre.png"
+              alt="André Mundal"
+              width={180}
+              height={200}
+              className="h-44 lg:h-56 w-auto drop-shadow-2xl translate-x-4 relative z-10"
+            />
+            <Image
+              src="/liv.png"
+              alt="Liv Oftedal Rossow"
+              width={180}
+              height={200}
+              className="h-44 lg:h-56 w-auto drop-shadow-2xl"
+            />
           </div>
 
         </div>
