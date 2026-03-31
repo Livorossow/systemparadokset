@@ -61,13 +61,13 @@ export default function Home() {
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-6 pt-16 sm:pt-20">
 
-        {/* Title — always full width */}
-        <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
-          Podcast
-        </p>
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-10">
-          System<span className="text-[#DAA960]">pa</span>radokset
-        </h1>
+        {/* Logo + Title */}
+        <div className="flex items-center gap-6 mb-10">
+          <img src="/logo.svg" alt="Systemparadokset logo" className="w-24 h-24 shrink-0" />
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
+            System<span className="text-[#DAA960]">pa</span>radokset
+          </h1>
+        </div>
 
         {/* Tagline + buttons (left) and photo (right) */}
         <div className="grid grid-cols-1 sm:grid-cols-[1fr_220px] lg:grid-cols-[1fr_260px] items-end gap-8 sm:gap-6">
