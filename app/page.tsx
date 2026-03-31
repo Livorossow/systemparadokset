@@ -179,7 +179,7 @@ export default function Home() {
                         src={ep.imageUrl}
                         alt={ep.title}
                         fill
-                        className="object-cover object-center grayscale brightness-125 contrast-90"
+                        className={`object-cover object-center ${ep.imageBranded ? "" : "grayscale brightness-125 contrast-90"}`}
                       />
                     </div>
                   )}

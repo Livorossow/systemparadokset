@@ -6,6 +6,7 @@ export type Episode = {
   duration: string;
   tags?: string[];
   imageUrl?: string;
+  imageBranded?: boolean; // true = allerede i brandfarger, ikke bruk filter
   spotifyUrl?: string;
   appleUrl?: string;
 };
@@ -19,6 +20,8 @@ export const episodes: Episode[] = [
     date: "2025-12-18",
     duration: "1t 6m",
     tags: ["Offentlig sektor", "Ledelse", "Endring"],
+    imageUrl: "/episodes/ep1.jpg",
+    imageBranded: true,
     spotifyUrl: "https://open.spotify.com/episode/5OPIlQpbjk4h9Cndq38MYD",
     appleUrl: "https://podcasts.apple.com/us/podcast/fra-rampete-ansatte-til-er-du-våken/id1863701419?i=1000742470165",
   },
@@ -42,6 +45,8 @@ export const episodes: Episode[] = [
     date: "2026-01-20",
     duration: "52 min",
     tags: ["Forsvar", "Byråkrati", "Endringsledelse"],
+    imageUrl: "/episodes/ep3.jpg",
+    imageBranded: true,
     spotifyUrl: "https://open.spotify.com/episode/0TEct4Tf2p5aUjOPsdmgis",
     appleUrl: "https://podcasts.apple.com/us/podcast/ungt-hastverk-og-seniorbremsing-i-regeljungelen/id1863701419?i=1000745824940",
   },
