@@ -47,78 +47,54 @@ export default function Home() {
     <div className="min-h-screen bg-[#141518] text-white font-sans">
 
       {/* ── Nav ───────────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-50 bg-[#141518]/95 backdrop-blur-sm border-b border-white/5">
-        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-          <span className="text-sm font-bold tracking-widest uppercase">
-            System<span className="text-[#DAA960]">PA</span>radokset
-          </span>
-          <a href="#om" className="text-sm text-white/40 hover:text-white transition-colors">
+      <nav className="absolute top-0 left-0 right-0 z-50">
+        <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-end">
+          <a href="#om" className="text-sm text-white/50 hover:text-white transition-colors">
             Om oss
           </a>
         </div>
       </nav>
 
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-6 pt-14 sm:pt-20">
+      <section className="flex flex-col items-center text-center px-6 pt-16 pb-16">
 
-        {/* Wordmark */}
-        <p className="font-mono text-sm sm:text-base tracking-[0.2em] uppercase font-semibold mb-10">
-          System<span className="text-[#DAA960]">PA</span>radokset
-          <span className="font-normal text-[#DAA960]/50 text-xs tracking-widest ml-4">Podcast</span>
+        {/* Logo */}
+        <Image
+          src="/logo.svg"
+          alt="Systemparadokset"
+          width={440}
+          height={293}
+          priority
+          className="mb-2"
+        />
+
+        {/* Tagline */}
+        <p className="text-lg sm:text-xl text-white/55 italic mb-8 leading-snug max-w-sm">
+          — hvordan sette fart der treghet regjerer
         </p>
 
-        {/* Ring around tagline + photo */}
-        <div className="relative py-10 sm:py-14 sm:px-10">
-
-          {/* Ellipse ring — desktop only */}
-          <span className="hidden sm:block absolute inset-0 rounded-[50%] border border-white/15 pointer-events-none" />
-          {/* Gold dots at top-centre and right-centre */}
-          <span className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#DAA960]" />
-          <span className="hidden sm:block absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#DAA960]" />
-
-          {/* Content: tagline + buttons left, photo right */}
-          <div className="grid grid-cols-1 sm:grid-cols-[1fr_240px] items-end gap-6">
-            <div className="pb-14 sm:pb-0">
-              <p className="text-xl sm:text-2xl text-white/60 italic mb-10 leading-snug">
-                — hvordan sette fart der treghet regjerer
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={SPOTIFY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
-                >
-                  <SpotifyIcon />
-                  Lytt på Spotify
-                </a>
-                <a
-                  href={APPLE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#9933CC] text-white text-sm font-bold hover:bg-[#aa44dd] transition-colors"
-                >
-                  <AppleIcon />
-                  Apple Podcasts
-                </a>
-              </div>
-            </div>
-
-            {/* Photo — hidden on mobile */}
-            <div className="hidden sm:block self-end">
-              <div className="relative w-full rounded-t-xl overflow-hidden" style={{ height: "260px" }}>
-                <Image
-                  src="/hosts.jpg"
-                  alt="André Mundal og Liv Oftedal Rossow"
-                  fill
-                  priority
-                  className="object-cover object-top grayscale brightness-110"
-                />
-              </div>
-            </div>
-          </div>
-
+        {/* Listen buttons */}
+        <div className="flex flex-wrap justify-center gap-3">
+          <a
+            href={SPOTIFY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1DB954] text-black text-sm font-bold hover:bg-[#1ed760] transition-colors"
+          >
+            <SpotifyIcon />
+            Lytt på Spotify
+          </a>
+          <a
+            href={APPLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#9933CC] text-white text-sm font-bold hover:bg-[#aa44dd] transition-colors"
+          >
+            <AppleIcon />
+            Apple Podcasts
+          </a>
         </div>
+
       </section>
 
       {/* ── Episodes ──────────────────────────────────────────── */}
@@ -203,6 +179,14 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="om" className="max-w-4xl mx-auto px-6 py-20 sm:py-24">
+        <div className="relative w-full rounded-2xl overflow-hidden mb-14" style={{ height: "340px" }}>
+          <Image
+            src="/hosts.jpg"
+            alt="André Mundal og Liv Oftedal Rossow foran Stortinget"
+            fill
+            className="object-cover object-center grayscale brightness-110"
+          />
+        </div>
         <div className="grid sm:grid-cols-2 gap-12 sm:gap-16">
           <div>
             <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-6">
