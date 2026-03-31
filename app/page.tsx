@@ -126,6 +126,16 @@ export default function Home() {
                     {String(ep.number).padStart(2, "0")}
                   </span>
                   <div className="flex-1 min-w-0">
+                  {ep.imageUrl && (
+                      <div className="relative w-full sm:w-72 h-44 sm:h-48 rounded-xl overflow-hidden mb-5">
+                        <Image
+                          src={ep.imageUrl}
+                          alt={ep.title}
+                          fill
+                          className="object-cover object-center grayscale brightness-125 contrast-90"
+                        />
+                      </div>
+                    )}
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
                       <span className="font-mono text-xs text-white/30">
                         {new Date(ep.date).toLocaleDateString("no-NO", {

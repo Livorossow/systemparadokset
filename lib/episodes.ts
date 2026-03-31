@@ -5,6 +5,7 @@ export type Episode = {
   date: string; // ISO 8601
   duration: string;
   tags?: string[];
+  imageUrl?: string;
   spotifyUrl?: string;
   appleUrl?: string;
 };
@@ -63,5 +64,6 @@ export const episodes: Episode[] = [
     date: "2026-03-31",
     duration: "50 min",
     tags: ["KI", "Digitalisering", "Offentlig sektor"],
+    imageUrl: "/episodes/ep6.jpg",
   },
 ];
