@@ -104,7 +104,7 @@ export default function Home() {
                 src="/hosts.jpg"
                 alt="André Mundal og Liv Oftedal Rossow"
                 fill
-                className="object-cover object-top grayscale contrast-125 brightness-75"
+                className="object-cover object-top grayscale brightness-110"
               />
             </div>
           </div>
