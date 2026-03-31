@@ -89,7 +89,7 @@ export default function Home() {
                 href={APPLE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 text-sm font-semibold hover:border-white/50 hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#9933CC] text-white text-sm font-bold hover:bg-[#aa44dd] transition-colors"
               >
                 <AppleIcon />
                 Apple Podcasts
@@ -233,7 +233,7 @@ export default function Home() {
                   <SpotifyIcon /> Spotify
                 </a>
                 <a href={APPLE_URL} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors">
+                  className="flex items-center gap-2 text-sm text-white/50 hover:text-[#9933CC] transition-colors">
                   <AppleIcon /> Apple Podcasts
                 </a>
               </div>
