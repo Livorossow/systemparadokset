@@ -60,17 +60,19 @@ export default function Home() {
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-6 pt-16 sm:pt-20">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_196px] lg:grid-cols-[1fr_240px] items-end">
 
-          {/* Text */}
-          <div className="pb-16 sm:pb-0 min-w-0 pr-0 sm:pr-8 sm:pb-10">
-            <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
-              Podcast
-            </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
-              System<span className="text-[#DAA960]">pa</span>radokset
-            </h1>
-            <p className="text-xl sm:text-2xl text-white/60 italic mb-12 max-w-lg leading-snug">
+        {/* Title — always full width */}
+        <p className="font-mono text-xs text-[#DAA960] tracking-widest uppercase mb-8">
+          Podcast
+        </p>
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-10">
+          System<span className="text-[#DAA960]">pa</span>radokset
+        </h1>
+
+        {/* Tagline + buttons (left) and photo (right) */}
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_220px] lg:grid-cols-[1fr_260px] items-end gap-8 sm:gap-6">
+          <div className="pb-16 sm:pb-10">
+            <p className="text-xl sm:text-2xl text-white/60 italic mb-12 leading-snug">
               — hvordan sette fart der treghet regjerer
             </p>
             <div className="flex flex-wrap gap-3">
@@ -95,9 +97,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Host photo — hidden on mobile, shown on sm+ */}
+          {/* Host photo — hidden on mobile */}
           <div className="hidden sm:block self-end">
-            <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ height: "280px" }}>
+            <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ height: "260px" }}>
               <Image
                 src="/hosts.jpg"
                 alt="André Mundal og Liv Oftedal Rossow"
@@ -106,8 +108,8 @@ export default function Home() {
               />
             </div>
           </div>
-
         </div>
+
       </section>
 
       {/* ── Episodes ──────────────────────────────────────────── */}
