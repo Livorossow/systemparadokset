@@ -175,7 +175,7 @@ export default function Home() {
             src="/hosts.jpg"
             alt="André Mundal og Liv Oftedal Rossow foran Stortinget"
             fill
-            className="object-cover object-[center_20%] grayscale brightness-110"
+            className="object-cover object-[center_70%] grayscale brightness-110"
           />
         </div>
         <div className="grid sm:grid-cols-2 gap-12 sm:gap-16">
