@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { episodes } from "@/lib/episodes";
 
 const SPOTIFY_URL = "https://open.spotify.com/show/3eXecEG9wqFRVbFX7B9xuY";
@@ -123,40 +124,30 @@ export default function Home() {
                       <span className="text-white/15">·</span>
                       <span className="font-mono text-xs text-white/30">{ep.duration}</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-[#DAA960] transition-colors">
-                      {ep.title}
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug">
+                      <Link href={`/episoder/${ep.number}`} className="hover:text-[#DAA960] transition-colors">
+                        {ep.title}
+                      </Link>
                     </h3>
-                    {ep.tags && ep.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {ep.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="font-mono text-xs text-[#DAA960]/50 border border-[#DAA960]/20 px-2.5 py-0.5 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                     <p className="text-[15px] text-white/55 leading-relaxed max-w-xl">
                       {ep.description}
                     </p>
-                    {(ep.spotifyUrl || ep.appleUrl) && (
-                      <div className="flex gap-4 mt-4">
-                        {ep.spotifyUrl && (
-                          <a href={ep.spotifyUrl} target="_blank" rel="noopener noreferrer"
-                            className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors">
-                            Spotify →
-                          </a>
-                        )}
-                        {ep.appleUrl && (
-                          <a href={ep.appleUrl} target="_blank" rel="noopener noreferrer"
-                            className="text-xs text-[#DAA960]/50 hover:text-[#DAA960] transition-colors">
-                            Apple →
-                          </a>
-                        )}
-                      </div>
-                    )}
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {ep.spotifyUrl && (
+                        <a href={ep.spotifyUrl} target="_blank" rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#1DB954] text-black text-xs font-bold hover:bg-[#1ed760] transition-colors">
+                          <SpotifyIcon />
+                          Spotify
+                        </a>
+                      )}
+                      {ep.appleUrl && (
+                        <a href={ep.appleUrl} target="_blank" rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#9933CC] text-white text-xs font-bold hover:bg-[#aa44dd] transition-colors">
+                          <AppleIcon />
+                          Apple Podcasts
+                        </a>
+                      )}
+                    </div>
                   </div>
                   {ep.imageUrl && (
                     <div className="relative shrink-0 w-32 sm:w-44 h-32 sm:h-44 rounded-xl overflow-hidden hidden sm:block">
@@ -179,12 +170,12 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="om" className="max-w-4xl mx-auto px-6 py-20 sm:py-24">
-        <div className="relative w-full rounded-2xl overflow-hidden mb-14" style={{ height: "340px" }}>
+        <div className="relative w-full rounded-2xl overflow-hidden mb-14" style={{ height: "460px" }}>
           <Image
             src="/hosts.jpg"
             alt="André Mundal og Liv Oftedal Rossow foran Stortinget"
             fill
-            className="object-cover object-center grayscale brightness-110"
+            className="object-cover object-[center_30%] grayscale brightness-110"
           />
         </div>
         <div className="grid sm:grid-cols-2 gap-12 sm:gap-16">

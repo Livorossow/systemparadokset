@@ -86,4 +86,40 @@ export const episodes: Episode[] = [
     spotifyUrl: "https://open.spotify.com/episode/0z4rZO0fRDsjognVsp4a2m",
     appleUrl: "https://podcasts.apple.com/us/podcast/hettegenser-møter-dress-når-fart-slår-kontroll/id1863701419?i=1000758377809",
   },
+  {
+    number: 7,
+    title: "Ja takk, alt sammen – og surpompene i Finans som sier nei",
+    description:
+      "Systemparadokset møtte Lars-Henrik Myrmel-Johansen, finansråd i Finansdepartementet. Vi snakket oss gjennom folk, penger, digitalisering og fart, eller omstilling. Oss surpomper i mellom.",
+    date: "2026-04-21",
+    duration: "53 min",
+    tags: ["Finansdepartementet", "Digitalisering", "Omstilling"],
+    imageUrl: "/episodes/ep7.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/4ga5RPOvNeuDXiJuxwA5Tr",
+    appleUrl: "https://podcasts.apple.com/us/podcast/ja-takk-alt-sammen-og-surpompene-i-finans-som-sier-nei/id1863701419?i=1000762531205",
+  },
+  {
+    number: 8,
+    title: "Fremtidsvisjoner, teknologisk brytningstid og full fart fremover",
+    description:
+      "Torbjørn Larsen kombinerer visjonære egenskaper med samfunnsengasjement og teknologisk innsikt. En samtale om fremtidsbilder, teknologisk brytningstid og hva som skal til for å holde full fart fremover.",
+    date: "2026-05-12",
+    duration: "44 min",
+    tags: ["Teknologi", "Fremtid", "Innovasjon"],
+    imageUrl: "/episodes/ep8.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/1B8kA3LMDea0EDYgL8aIra",
+    appleUrl: "https://podcasts.apple.com/us/podcast/fremtidsvisjoner-teknologisk-brytningstid-og-full-fart/id1863701419?i=1000767330728",
+  },
+  {
+    number: 9,
+    title: "De flinkeste slutter – men gir aldri opp!",
+    description:
+      "Vegard Storstad forlater NAV etter 5 år som konstituert teknologidirektør. Hva skjedde da ledelsen skiftet, og hva skal til for å skape fart i byråkratiske systemer – selv når du ikke lenger er på innsiden?",
+    date: "2026-05-12",
+    duration: "57 min",
+    tags: ["NAV", "Teknologi", "Endringsledelse"],
+    imageUrl: "/episodes/ep9.jpg",
+    spotifyUrl: "https://open.spotify.com/episode/2W0H1mpCrSLx0PuR5XHuMF",
+    appleUrl: "https://podcasts.apple.com/us/podcast/de-flinkeste-slutter-men-gir-aldri-opp/id1863701419?i=1000767332087",
+  },
 ];
